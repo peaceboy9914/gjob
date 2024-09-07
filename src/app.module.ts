@@ -3,9 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GjobModule } from './gjob/gjob.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://mahdi:9914mamunusaka9914@gjobs.fka1l.mongodb.net/'), GjobModule],
+  imports: [MongooseModule.forRoot(process.env.MONGO_DB_URL), GjobModule],
   controllers: [AppController],
   providers: [AppService],
 })
