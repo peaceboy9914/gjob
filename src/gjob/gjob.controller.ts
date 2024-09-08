@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Delete } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Delete, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { GjobService } from './gjob.service';
 
@@ -23,9 +23,15 @@ export class GjobController {
         return this.GjobService.create(createUserDto)
     }
 
+
+
+
     // @Delete('users/:id')
     // remove(@Param('id') id: string) {
     //     return this.GjobService.remove(id);
     // }
 }
+
+
+
 

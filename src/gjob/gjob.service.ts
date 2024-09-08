@@ -8,6 +8,7 @@ import { Gjob } from 'src/schemas/gjob.schema';
 export class GjobService {
     constructor(@InjectModel(Gjob.name) private catModel: Model<Gjob>) {}
 
+
     async create(createUserDto: CreateUserDto): Promise<Gjob> {
       const createdCat = new this.catModel(createUserDto);
       return createdCat.save();
