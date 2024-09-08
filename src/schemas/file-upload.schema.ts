@@ -10,7 +10,7 @@ export class FileUpload {
   filename: string;
 
   @Prop()
-  description: string;
+  url: string;
 }
 
 export const FileUploadSchema = SchemaFactory.createForClass(FileUpload);

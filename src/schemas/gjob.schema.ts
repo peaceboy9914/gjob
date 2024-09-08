@@ -13,6 +13,12 @@ export class Gjob {
 
     @Prop({required: true})
     email: string;
+
+    @Prop()
+    filename: string;
+
+    @Prop()
+    url: string;
 }
 
 export const GjobSchema = SchemaFactory.createForClass(Gjob)

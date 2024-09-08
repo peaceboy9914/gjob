@@ -17,5 +17,14 @@ export class GjobService {
     async findAll(): Promise<Gjob[]> {
       return this.catModel.find().exec();
     }
+
+    async uploadImage(filename: string, url: string): Promise<Gjob> {
+      const newImage = new this.catModel({ filename, url });
+      return newImage.save();
+    }
+
+    async getAllImage(): Promise<Gjob[]> {
+      return this.catModel.find().exec();
+    }
 }
 

@@ -6,7 +6,7 @@ import { FileUpload } from 'src/schemas/file-upload.schema';
 
 @Injectable()
 export class ImagesService {
-    constructor(@InjectModel('FileUpload') private readonly fileUploadModel: Model<FileUpload>) { }
+    constructor(@InjectModel(Image.name) private readonly fileUploadModel: Model<FileUpload>) { }
 
     async uploadFile(file: Express.Multer.File, fileUploadDto: FileUploadDto) {
       const fileUpload = new this.fileUploadModel({
