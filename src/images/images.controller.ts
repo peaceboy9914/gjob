@@ -30,7 +30,7 @@ export class ImagesController {
   async getFile(@Param('id') id:string, @Res() res) {
     const file = await this.imagesService.getFile(id);
     if(!file) {
-        return res.status(404).send({ message: 'File not found' });
+        return res.status(404).send({ message: 'File can not found' });
     }
     return res.status(HttpStatus.OK).json(file);
   }
