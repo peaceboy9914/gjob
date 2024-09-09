@@ -5,8 +5,20 @@ export type ItemDocument = Item & Document;
 
 @Schema()
 export class Item {
-    @Prop({required: true})
+    @Prop()
     name: string;
+
+    @Prop()
+    primaryPhone: string;
+
+    @Prop()
+    secondaryPhone: string;
+
+    @Prop()
+    educationLevel: string;
+
+    @Prop()
+    email: string;
 
     @Prop()
     imageUrl: string;
