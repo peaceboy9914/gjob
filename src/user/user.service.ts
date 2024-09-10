@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { User } from './Schema/user.schema';
+import { User, UserDocument } from './Schema/user.schema';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
@@ -16,5 +16,9 @@ export class UserService {
 
     async findAll(): Promise<User[]> {
         return this.userModel.find().exec()
+    }
+
+    async findByEmail(email: string): Promise< UserDocument | null> {
+        return this.userModel.findOne({ email }).exec() as unknown as Promise<UserDocument | null>;
     }
 }
