@@ -16,6 +16,7 @@ export class UserController {
         return this.userService.create(body.email, body.password)
     }
 
+    @UseGuards(JwtAuthGuard)
     @Get('admin')
     async findAll(): Promise<User[]> {
         return this.userService.findAll()
