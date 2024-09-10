@@ -12,7 +12,7 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [MongooseModule.forRoot(process.env.MONGO_DB_URL), ItemsModule, UserModule, AuthModule],
-  controllers: [AppController, AuthController],
-  providers: [AppService, AuthService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
