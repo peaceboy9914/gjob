@@ -16,7 +16,7 @@ export class AuthService {
   ) {}
 
 
-    async create(email: string, password: string): Promise<{ access_token: string }> {
+    async login(email: string, password: string): Promise<{ access_token: string }> {
         const user = await this.userService.findByEmail(email);
         if(user && await bcrypt.compare(password, user.password)){
             const payload = { email: user.email};
