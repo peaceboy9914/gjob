@@ -3,14 +3,14 @@ import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './Schema/user.schema';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
+import { AuthService } from 'src/auth/auth.service';
 
 @Injectable()
 export class UserService {
-    constructor(
-        @Inject(forwardRef(() => UserService))
-        @InjectModel(User.name) 
-        private userModel: Model<User>) 
-        {}
+    constructor(@InjectModel(User.name) private userModel: Model<User>,
+    @Inject(forwardRef(() => AuthService)) private authService: AuthService,
+
+) {}
 
     async create(email: string, password:string): Promise<User> {
         const hashedPassword = await bcrypt.hash(password, 10)
