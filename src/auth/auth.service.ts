@@ -10,10 +10,10 @@ import * as bcrypt from 'bcrypt';
 @Injectable()
 export class AuthService {
 
-    constructor(@Inject(forwardRef(() => UserService))
-        private userService: UserService, 
-        private jwtService: JwtService) 
-        {}
+    constructor(
+    @Inject(forwardRef(() => UserService)) private userService: UserService,
+    private jwtService: JwtService,
+  ) {}
 
 
     async create(email: string, password: string): Promise<{ access_token: string }> {

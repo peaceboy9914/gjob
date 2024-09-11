@@ -7,10 +7,10 @@ import { AuthService } from 'src/auth/auth.service';
 
 @Injectable()
 export class UserService {
-    constructor(@InjectModel(User.name) private userModel: Model<User>,
-    @Inject(forwardRef(() => AuthService)) private authService: AuthService,
-
-) {}
+    constructor(
+        @InjectModel(User.name) private userModel: Model<UserDocument>,
+        @Inject(forwardRef(() => AuthService)) private authService: AuthService,
+      ) {}
 
     async create(email: string, password:string): Promise<User> {
         const hashedPassword = await bcrypt.hash(password, 10)
